@@ -58,6 +58,12 @@ done
 set -e
 # migrate the database
 cd /app/ckstats
+
+# Patch for DigiByte support
+sed -i 's/placeholder="Enter Bitcoin address"/placeholder="Enter DigiByte address"/g' components/Header.tsx
+sed -i "s/setModalMessage('Invalid Bitcoin address')/setModalMessage('Invalid DigiByte address')/g" components/Header.tsx
+sed -i '/Quick sanity checks/a \  return true; // Patch for DigiByte' utils/validateBitcoinAddress.ts
+
 pnpm migration:run
 # seed the database
 pnpm seed
