@@ -109,7 +109,12 @@ services:
     environment:
       DATABASE_URL: "postgres://ckstats:ckstats@db/ckstats"
       SHADOW_DATABASE_URL: "postgres://ckstats:ckstats@db/dbshadow"
-      API_URL: "http://digibyte-ckpool"
+      DB_HOST: "db"
+      DB_USER: "ckstats"
+      DB_PASSWORD: "ckstats"
+      DB_NAME: "ckstats"
+      DB_PORT: "5432"
+      API_URL: "http://digibyte-ckpool:4028"
       RPCUSER: "rpcuser"
       RPCPASSWORD: "rpcpassword"
       RPCPORT: "8432"
